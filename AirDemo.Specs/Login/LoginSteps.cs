@@ -1,11 +1,10 @@
-﻿using AirDemo.Specs.Pages;
+﻿using HOTELpinSight.Pages;
 using NUnit.Framework;
 using OpenQA.Selenium;
-using System;
 using System.Threading;
 using TechTalk.SpecFlow;
 
-namespace AirDemo.Specs.Login
+namespace HOTELpinSight.Specs.Login
 {
     [Binding]
     public class LoginSteps
@@ -33,7 +32,7 @@ namespace AirDemo.Specs.Login
         [Given(@"I enter the password")]
         public void GivenIEnterThePassword()
         {
-            _loginPage.Password = "";
+            _loginPage.Password = "Test@123";
         }
 
         [When(@"I press login")]
@@ -48,6 +47,7 @@ namespace AirDemo.Specs.Login
             _hotelSearchPage.EnsurePageIsLoaded();
 
             Assert.IsTrue(_driver.Title.Contains("P UAT"));
+            Thread.Sleep(5000);
         }
 
         [AfterScenario]

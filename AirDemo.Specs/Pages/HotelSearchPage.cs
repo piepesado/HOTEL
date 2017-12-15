@@ -2,17 +2,13 @@
 using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium.Support.UI;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace AirDemo.Specs.Pages
+namespace HOTELpinSight.Pages
 {
     public class HotelSearchPage : BasePage
     {
-        [FindsBy(How = How.LinkText, Using = "Flight")]
-        private IWebElement _flightLink;
+        [FindsBy(How = How.Id, Using = "ucPWP_ctl08_55218_lnkGoToBackOffice")]
+        private IWebElement _backOfficeButton;
 
         public HotelSearchPage(IWebDriver driver) : base(driver)
         {
@@ -21,7 +17,7 @@ namespace AirDemo.Specs.Pages
         public void EnsurePageIsLoaded()
         {
             WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(30));
-            wait.Until(ExpectedConditions.ElementToBeClickable(_flightLink));
+            wait.Until(ExpectedConditions.ElementToBeClickable(_backOfficeButton));
         }
 
         /*
